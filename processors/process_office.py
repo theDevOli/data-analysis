@@ -1,11 +1,12 @@
+from models.office import Office
 from services.query_service import get_office_data
 from services.table_service import generate_table
 
-def process_office(office):
+def process_office(office : Office):
 
     df = get_office_data(office.office_id)
 
     if df.empty:
         return
 
-    generate_table(df, office.office_name)
+    generate_table(df, office)
