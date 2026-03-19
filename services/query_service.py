@@ -11,10 +11,10 @@ def get_offices()-> list[Office]:
     Returns:
         list[Office]: A list of Office objects.
     """
-    query = "SELECT office_id, office_name FROM customers.office;"
+    query = "SELECT office_id, office_name, city FROM customers.office;"
     df = pd.read_sql_query(query, engine)
 
-    return [Office(row.office_id, row.office_name) for _, row in df.iterrows()]
+    return [Office(row.office_id, row.office_name, row.city) for _, row in df.iterrows()]
 
 
 def get_office_data(office_id: str) -> pd.DataFrame:

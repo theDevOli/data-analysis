@@ -1,4 +1,6 @@
 import matplotlib
+
+from models.office import Office
 matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
@@ -7,12 +9,12 @@ import pandas as pd
 
 from config import OUTPUT_PATH
 
-def generate_table(df: pd.DataFrame, office_name: str)-> None:
+def generate_table(df: pd.DataFrame, office: Office)-> None:
     """
     Generates a report based on the provided DataFrame and office name, and saves it as an image.
     Args:
         df (pd.DataFrame): A DataFrame containing the data to be included in the report.
-        office_name (str): The name of the office for which the report is generated.
+        office (Office): The office entity for which the report is generated.
     """
     fig, ax = plt.subplots(figsize=(12, 8))
     ax.axis("off")
@@ -58,7 +60,7 @@ def generate_table(df: pd.DataFrame, office_name: str)-> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     plt.savefig(
-        output_dir / f"{office_name.replace(' ', '_')}.png",
+        output_dir / f"{office.office_name.replace(' ', '_')}-{office.city[:3].upper()}.png",
         bbox_inches='tight',
         dpi=300
     )
