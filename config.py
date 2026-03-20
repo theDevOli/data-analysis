@@ -11,4 +11,6 @@ DATABASE = {
     "port": int(os.getenv("DB_PORT")),
     "database": os.getenv("DB_NAME"),
 }
-OUTPUT_PATH = "output/offices"
+
+OUTPUT_OFFICE_PATH = "output/offices"
+OUTPUT_PARTNER_PATH = "output/partners"
