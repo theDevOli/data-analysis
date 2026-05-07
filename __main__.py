@@ -25,12 +25,12 @@ def main():
 
         generate_offices_table(df_client_data, df_statistics, office)
     
-    # for partner in partners:
-    #     df = get_partner_data(partner.partner_id)
-    #     if df.empty:
-    #         continue
+    for partner in partners:
+        df = get_partner_data(partner.partner_id)
+        if df.empty:
+            continue
 
-    #     generate_partner_table(df, partner.partner_name)
+        generate_partner_table(df, partner.partner_name)
 
     # with ZipFile(zip_path, "w") as zipf:
     #     for file in output_dir.iterdir():
